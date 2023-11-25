@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequestUpdate extends FormRequest
+class WeatherRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,17 @@ class EventRequestUpdate extends FormRequest
     public function rules(): array
     {
         return [
-            "event_name" => ['max:255'],
-            "event_date" => ['date'],
-            "event_max_capacity" => ['integer' ,'min:2', 'max:100'], // Multiple rules in Array format
-            "event_speaker_name" => ['max:255'],
-            "event_location_name" => 'nullable|max:255', //Multiple rules in String format
-            "event_meetup_url" => 'nullable|url',
-            "event_is_virtual" => ['boolean']
+            'location_name' => 'string',
+            'recorded_at' => 'date',
+            'temperature' => 'numeric',
+            'humidity' => 'numeric',
+            'wind_speed' => 'numeric',
+            'weather_description' => 'string',
+            'pressure' => 'numeric',
+            'uv_index' => 'numeric',
+            'forecast' => 'string',
+            'latitude' => 'numeric',
+            'longitude' => 'numeric',
         ];
     }
 }
